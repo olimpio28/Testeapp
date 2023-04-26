@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/myimage.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,7 +39,7 @@ class MyHomePage extends StatelessWidget {
         child: Container(
             child: Row(
           children: [
-            final List<String> images = [
+          final List<String> images = [
             'https://files.tecnoblog.net/wp-content/uploads/2016/07/GettyImages-535152205-insert.jpg',
             'https://i.ytimg.com/vi/6sVdkb5SLg4/hqdefault.jpg',
             'https://s2.glbimg.com/T9rGm2_zr2cgIi7vM5KkDMGcwCg=/800x0/smart/filters:strip_icc()/s.glbimg.com/po/tt2/f/original/2016/07/08/foto-06-07-16-15-01-55.jpg'
@@ -46,6 +48,27 @@ class MyHomePage extends StatelessWidget {
           (index) => Image.network(
           images[index],
           fit: BoxFit.cover,
+
+          final widget imageList = ListView.builder(
+            ScrollDirection: Axis.horizontal,
+            itemCount: imageWidgets.length,
+            itemBuilder: (BuildContext context, int index)
+            { return Padding(
+              padding: EdgeInsets.all(8.0),
+              child: imageWidgets[index],
+            );
+            },
+            );
+            SingleChildScrollView(
+              ScrollDirection: Axis.horizontal,
+              child: Container(
+                child: Row(
+                  children: [
+                    imageList,
+                  ],
+                ),
+              ),
+            ),
 ),
 ];
           ],
