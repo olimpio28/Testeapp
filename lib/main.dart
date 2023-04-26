@@ -13,29 +13,43 @@ class MyApp extends StatelessWidget {
       // Application theme data, you can set the colors for the application as
       // you want
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Pokemon Store'),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
   final String title;
-  const MyHomePage({super.key, required this.title});  
+  const MyHomePage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // The title text which will be shown on the action bar
-        title: Text(title),
+        title: Text('Flutter App'),
       ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Container(
+            child: Row(
+          children: [
+            final List<String> images = [
+            'https://files.tecnoblog.net/wp-content/uploads/2016/07/GettyImages-535152205-insert.jpg',
+            'https://i.ytimg.com/vi/6sVdkb5SLg4/hqdefault.jpg',
+            'https://s2.glbimg.com/T9rGm2_zr2cgIi7vM5KkDMGcwCg=/800x0/smart/filters:strip_icc()/s.glbimg.com/po/tt2/f/original/2016/07/08/foto-06-07-16-15-01-55.jpg'
+
+          Final List<Widget> imageWidgets = images.length,
+          (index) => Image.network(
+          images[index],
+          fit: BoxFit.cover,
+),
+];
+          ],
+        )),
       ),
     );
   }
