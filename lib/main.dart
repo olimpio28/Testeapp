@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/myimage.dart';
 
 void main() => runApp(MyApp());
 
